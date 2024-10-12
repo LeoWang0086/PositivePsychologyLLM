@@ -51,7 +51,7 @@ def count_words(text):
     return len(jieba.lcut(text))
 
 # 读取 Excel 文件
-df = pd.read_excel('data/generated data/conversation_results_with_no_and_question.xlsx')
+df = pd.read_excel('./PositivePsychologyLLM/data/generated data/conversation_results_with_no_and_question-1012.xlsx')
 
 # 处理缺失值，将 NaN 值替换为空字符串
 df['Generated'] = df['Generated'].fillna('')
@@ -67,7 +67,7 @@ df['bleu'] = df.apply(calculate_bleu_score, axis=1)
 df['bert_score'] = df.apply(calculate_bert_score, axis=1)
 
 # 保存到 Excel 文件中
-df.to_excel('data/result/evaluation_results_with_word_count.xlsx', index=False)
+df.to_excel('./PositivePsychologyLLM/data/generated data/conversation_results_with_no_and_question-1012.xlsx', index=False)
 
 # 计算平均值时忽略 None 值
 average_rouge_1 = df['rouge-1'].dropna().mean()

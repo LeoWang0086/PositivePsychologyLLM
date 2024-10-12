@@ -3,12 +3,12 @@ import pandas as pd
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # 加载模型和tokenizer
-model_path = '/root/autodl-tmp/LLaMA-Factory/final'  # 替换为你导出的模型路径
+model_path = 'autodl-tmp/LLaMA-Factory/final'  # 替换为你导出的模型路径
 tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(model_path, trust_remote_code=True, device_map='auto')
 
 # 加载对话数据
-with open('test-conversations.json', 'r') as f:
+with open('/root/autodl-tmp/LLaMA-Factory/PositivePsychologyLLM/data/raw json/人工改编计算机语料-2.json', 'r') as f:
     data = json.load(f)
 
 # 存储对话结果的列表
@@ -106,6 +106,6 @@ for conversation_no, conversation in enumerate(data, start=1):
 
 # 将结果保存为 pandas DataFrame，并写入 Excel
 df = pd.DataFrame(results)
-df.to_excel('conversation_results_with_no_and_question.xlsx', index=False)
+df.to_excel('autodl-tmp/LLaMA-Factory/PositivePsychologyLLM/data/generated data/conversation_results_with_no_and_question-1012.xlsx', index=False)
 
 print("done")

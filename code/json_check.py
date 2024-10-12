@@ -1,7 +1,7 @@
 import json
 
 # 假设 'data.json' 是你的 JSON 文件名
-file_path = 'PositivePsychologyLLM/data/raw json/人工改编计算机语料.json'
+file_path = 'PositivePsychologyLLM/data/raw json/人工改编计算机语料-2.json'
 
 
 
